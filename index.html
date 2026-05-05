@@ -1,0 +1,1338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UB DigiTech | Future-Proofing Brands for the AI Era</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --deep-black: #000000;
+            --electric-blue: #007BFF;
+            --cyber-teal: #00D4FF;
+            --navy-gradient: linear-gradient(135deg, #007BFF 0%, #004080 50%, #001a33 100%);
+            --glow-blue: rgba(0, 123, 255, 0.6);
+            --glow-teal: rgba(0, 212, 255, 0.4);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--deep-black);
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        .font-orbitron {
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0a0a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--electric-blue);
+            border-radius: 4px;
+        }
+
+        /* Animated Background Grid */
+        .grid-bg {
+            background-image: 
+                linear-gradient(rgba(0, 123, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 123, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridMove 20s linear infinite;
+        }
+
+        @keyframes gridMove {
+            0% { background-position: 0 0; }
+            100% { background-position: 50px 50px; }
+        }
+
+        /* Glowing Effects */
+        .glow-text {
+            text-shadow: 0 0 20px var(--glow-blue), 0 0 40px var(--glow-blue), 0 0 60px var(--glow-blue);
+        }
+
+        .glow-box {
+            box-shadow: 0 0 30px rgba(0, 123, 255, 0.3), inset 0 0 30px rgba(0, 123, 255, 0.1);
+        }
+
+        .glow-teal-text {
+            text-shadow: 0 0 20px var(--glow-teal), 0 0 40px var(--glow-teal);
+        }
+
+        /* 3D Card Effect with Enhanced Interactions */
+        .card-3d {
+            transform-style: preserve-3d;
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            background: linear-gradient(145deg, rgba(10, 10, 30, 0.9), rgba(0, 0, 0, 0.95));
+            border: 1px solid rgba(0, 123, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-3d::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(0, 123, 255, 0.15), transparent 50%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .card-3d:hover::before {
+            opacity: 1;
+        }
+
+        .card-3d:hover {
+            transform: translateY(-15px) rotateX(8deg) rotateY(-8deg);
+            box-shadow: 
+                0 30px 60px rgba(0, 123, 255, 0.4),
+                0 0 80px rgba(0, 212, 255, 0.3),
+                inset 0 0 40px rgba(0, 123, 255, 0.15);
+            border-color: var(--electric-blue);
+        }
+
+        /* Glassmorphic Card */
+        .glass-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.7s ease;
+        }
+
+        .glass-card:hover::before {
+            left: 100%;
+        }
+
+        .glass-card:hover {
+            border-color: rgba(0, 212, 255, 0.4);
+            box-shadow: 0 20px 40px rgba(0, 123, 255, 0.2), 0 0 60px rgba(0, 212, 255, 0.1);
+        }
+
+        /* 9-Pillar Bento Grid */
+        .bento-grid-9 {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 640px) {
+            .bento-grid-9 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .bento-grid-9 {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* Pillar Card Sizes */
+        .pillar-card {
+            min-height: 320px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pillar-card.featured {
+            grid-column: span 1;
+        }
+
+        @media (min-width: 1024px) {
+            .pillar-card.featured {
+                grid-column: span 2;
+            }
+        }
+
+        /* Logo Animation */
+        .logo-monogram {
+            position: relative;
+            font-size: clamp(4rem, 15vw, 12rem);
+            font-weight: 900;
+            background: var(--navy-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: logoPulse 3s ease-in-out infinite;
+        }
+
+        @keyframes logoPulse {
+            0%, 100% { filter: drop-shadow(0 0 20px var(--glow-blue)); }
+            50% { filter: drop-shadow(0 0 40px var(--glow-blue)) drop-shadow(0 0 60px var(--glow-teal)); }
+        }
+
+        /* Pixel Particles */
+        .pixel-particle {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: var(--electric-blue);
+            animation: pixelFloat 4s ease-in-out infinite;
+            box-shadow: 0 0 10px var(--electric-blue);
+        }
+
+        @keyframes pixelFloat {
+            0%, 100% { transform: translateY(0) scale(1); opacity: 1; }
+            50% { transform: translateY(-30px) scale(1.5); opacity: 0.5; }
+        }
+
+        /* Neural Network Lines */
+        .neural-line {
+            position: absolute;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--electric-blue), transparent);
+            animation: neuralPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes neuralPulse {
+            0%, 100% { opacity: 0.2; transform: scaleX(0.5); }
+            50% { opacity: 1; transform: scaleX(1); }
+        }
+
+        /* CTA Button */
+        .cta-button {
+            position: relative;
+            background: var(--navy-gradient);
+            border: none;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 123, 255, 0.5);
+        }
+
+        /* Floating Elements */
+        .float-element {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        /* Gradient Border */
+        .gradient-border {
+            position: relative;
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        .gradient-border::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            padding: 2px;
+            background: linear-gradient(135deg, var(--electric-blue), var(--cyber-teal), var(--electric-blue));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            border-radius: inherit;
+        }
+
+        /* Stats Counter */
+        .stat-number {
+            background: var(--navy-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Section Divider */
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--electric-blue), var(--cyber-teal), var(--electric-blue), transparent);
+        }
+
+        /* Navigation */
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--electric-blue);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Hero 3D Container */
+        .hero-3d-container {
+            perspective: 1000px;
+        }
+
+        .hero-3d-element {
+            transform-style: preserve-3d;
+            animation: rotate3d 10s linear infinite;
+        }
+
+        @keyframes rotate3d {
+            0% { transform: rotateY(0deg) rotateX(0deg); }
+            100% { transform: rotateY(360deg) rotateX(360deg); }
+        }
+
+        /* Scan Line Effect */
+        .scan-line {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .scan-line::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--cyber-teal), transparent);
+            animation: scan 3s linear infinite;
+        }
+
+        @keyframes scan {
+            0% { top: 0; opacity: 1; }
+            100% { top: 100%; opacity: 0; }
+        }
+
+        /* Service Icon Glow */
+        .service-icon {
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .card-3d:hover .service-icon {
+            filter: drop-shadow(0 0 30px var(--electric-blue));
+            transform: scale(1.15) rotateY(10deg);
+        }
+
+        .glass-card:hover .service-icon {
+            filter: drop-shadow(0 0 25px var(--cyber-teal));
+            transform: scale(1.1);
+        }
+
+        /* Tagline Animation */
+        .tagline-text {
+            overflow: hidden;
+        }
+
+        .tagline-text span {
+            display: inline-block;
+            animation: fadeInUp 0.5s ease forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Transition Animation for Services */
+        .transition-tagline {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            padding: 1rem 2rem;
+            background: linear-gradient(90deg, transparent, rgba(0, 123, 255, 0.1), transparent);
+            border-radius: 9999px;
+            margin-bottom: 3rem;
+            animation: taglinePulse 3s ease-in-out infinite;
+        }
+
+        @keyframes taglinePulse {
+            0%, 100% { 
+                box-shadow: 0 0 20px rgba(0, 123, 255, 0.2);
+                border-color: rgba(0, 123, 255, 0.3);
+            }
+            50% { 
+                box-shadow: 0 0 40px rgba(0, 123, 255, 0.4);
+                border-color: rgba(0, 212, 255, 0.5);
+            }
+        }
+
+        .transition-tagline span {
+            display: inline-block;
+            animation: wordFade 2s ease-in-out infinite;
+        }
+
+        .transition-tagline span:nth-child(1) { animation-delay: 0s; }
+        .transition-tagline span:nth-child(2) { animation-delay: 0.5s; }
+        .transition-tagline span:nth-child(3) { animation-delay: 1s; }
+
+        @keyframes wordFade {
+            0%, 100% { opacity: 0.7; }
+            50% { opacity: 1; text-shadow: 0 0 20px var(--glow-blue); }
+        }
+
+        /* Pixel Transformation Effect */
+        .pixel-transform {
+            position: relative;
+        }
+
+        .pixel-transform::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 2px,
+                rgba(0, 123, 255, 0.03) 2px,
+                rgba(0, 123, 255, 0.03) 4px
+            );
+            pointer-events: none;
+        }
+
+        /* 3D Icon Container */
+        .icon-3d {
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.4s ease;
+        }
+
+        .icon-3d::before {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            background: inherit;
+            border-radius: inherit;
+            filter: blur(15px);
+            opacity: 0.5;
+            transform: translateZ(-10px);
+            z-index: -1;
+        }
+
+        /* Section Labels */
+        .section-label {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .section-label::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--cyber-teal);
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.5); opacity: 0.5; }
+        }
+
+        /* Pillar Number */
+        .pillar-number {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3rem;
+            font-weight: 900;
+            color: rgba(0, 123, 255, 0.1);
+            line-height: 1;
+            transition: all 0.3s ease;
+        }
+
+        .card-3d:hover .pillar-number,
+        .glass-card:hover .pillar-number {
+            color: rgba(0, 212, 255, 0.2);
+            transform: scale(1.1);
+        }
+
+        /* Feature List */
+        .feature-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .feature-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.6rem;
+            width: 6px;
+            height: 6px;
+            background: var(--cyber-teal);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--cyber-teal);
+        }
+
+        .card-3d:hover .feature-list li::before {
+            box-shadow: 0 0 15px var(--electric-blue);
+        }
+
+        /* Bento Grid for GEO */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 1.5rem;
+        }
+
+        .bento-item-1 { grid-column: span 12; }
+        .bento-item-2 { grid-column: span 6; }
+        .bento-item-3 { grid-column: span 6; }
+
+        @media (min-width: 1024px) {
+            .bento-item-1 { grid-column: span 12; }
+            .bento-item-2 { grid-column: span 4; }
+            .bento-item-3 { grid-column: span 4; }
+            .bento-item-4 { grid-column: span 4; }
+        }
+
+        @media (max-width: 768px) {
+            .bento-item-2, .bento-item-3, .bento-item-4 {
+                grid-column: span 12;
+            }
+        }
+    </style>
+  <script data-arena-recording="true">(function(){
+"use strict";
+var SK="__arena_rec",RRWEB_CDN="https://cdn.jsdelivr.net/npm/rrweb@2.0.0-alpha.4/dist/rrweb.min.js";
+var MAX_RECORDING_MS=600000,MAX_RRWEB_EVENTS=30000,MAX_INTERACTIONS=5000,MAX_CURSOR_POINTS=10000,recStopped=false;
+var stored=null;try{var raw=sessionStorage.getItem(SK);if(raw)stored=JSON.parse(raw);}catch(ex){}
+var meta=stored?stored.m||null:null,rrwebEvents=stored?stored.r||[]:[],rrwebStarted=false,startTime=stored?stored.st||Date.now():Date.now();
+var interactions=stored?stored.i||[]:[],cursorPath=stored?stored.c||[]:[],lastCursorSample=0,lastScrollSample=0;
+var pageHeight=document.documentElement.scrollHeight;
+var viewport={width:window.innerWidth,height:window.innerHeight};
+function isCapped(){if(recStopped)return true;if(Date.now()-startTime>=MAX_RECORDING_MS){recStopped=true;return true;}return false;}
+function persist(){try{var d=JSON.stringify({r:rrwebEvents,i:interactions,c:cursorPath,m:meta,st:startTime});sessionStorage.setItem(SK,d);}catch(ex){rrwebEvents=rrwebEvents.slice(Math.floor(rrwebEvents.length/2));try{sessionStorage.setItem(SK,JSON.stringify({r:rrwebEvents,i:interactions,c:cursorPath,m:meta,st:startTime}));}catch(ex2){}}}
+setInterval(persist,5000);
+window.addEventListener("resize",function(){viewport={width:window.innerWidth,height:window.innerHeight};pageHeight=document.documentElement.scrollHeight;});
+document.addEventListener("click",function(e){if(isCapped()||interactions.length>=MAX_INTERACTIONS)return;var el=e.target;var tag=el.tagName?el.tagName.toLowerCase():"";var text=(el.textContent||"").trim().substring(0,80);var classes=el.className&&typeof el.className==="string"?el.className.substring(0,120):"";interactions.push({type:"click",t:Date.now()-startTime,x:Math.round(e.clientX),y:Math.round(e.clientY),element:{tag:tag,text:text,classes:classes}});},true);
+window.addEventListener("scroll",function(){if(isCapped()||interactions.length>=MAX_INTERACTIONS)return;var now=Date.now();if(now-lastScrollSample<200)return;lastScrollSample=now;var scrollY=Math.round(window.scrollY||window.pageYOffset||0);var depthPct=pageHeight>viewport.height?Math.min(100,Math.round(((scrollY+viewport.height)/pageHeight)*100)):100;interactions.push({type:"scroll",t:now-startTime,y:scrollY,depth_pct:depthPct});},{passive:true});
+document.addEventListener("mousemove",function(e){if(isCapped()||cursorPath.length>=MAX_CURSOR_POINTS)return;var now=Date.now();if(now-lastCursorSample<250)return;lastCursorSample=now;cursorPath.push([Math.round(e.clientX),Math.round(e.clientY),now-startTime]);},{passive:true});
+document.addEventListener("keydown",function(e){if(isCapped()||interactions.length>=MAX_INTERACTIONS)return;if(e.target&&(e.target.tagName==="INPUT"||e.target.tagName==="TEXTAREA"))return;interactions.push({type:"keydown",t:Date.now()-startTime,key:e.key});},true);
+function buildAnalytics(){if(!meta)return null;var ph=document.documentElement.scrollHeight;var maxScroll=0,clickElements={},firstClick=null,firstScroll=null,totalDistance=0;for(var i=0;i<interactions.length;i++){var ev=interactions[i];if(ev.type==="scroll"){if(ev.depth_pct>maxScroll)maxScroll=ev.depth_pct;if(!firstScroll)firstScroll=ev.t;}if(ev.type==="click"){if(!firstClick)firstClick=ev.t;var key=ev.element.tag+":"+ev.element.text.substring(0,30);clickElements[key]=true;}}for(var j=1;j<cursorPath.length;j++){var dx=cursorPath[j][0]-cursorPath[j-1][0];var dy=cursorPath[j][1]-cursorPath[j-1][1];totalDistance+=Math.sqrt(dx*dx+dy*dy);}var duration=Date.now()-startTime;var clickHeatmap=[];for(var k=0;k<interactions.length;k++){if(interactions[k].type==="click")clickHeatmap.push([interactions[k].x,interactions[k].y]);}return{generation_id:meta.generationId,tournament_id:meta.tournamentId,started_at:new Date(startTime).toISOString(),ended_at:new Date().toISOString(),duration_ms:duration,viewport:viewport,page_height:ph,interactions:interactions,cursor_path:cursorPath,click_heatmap:clickHeatmap,summary:{total_clicks:clickHeatmap.length,total_scrolls:interactions.filter(function(e){return e.type==="scroll";}).length,max_scroll_depth_pct:maxScroll,unique_elements_clicked:Object.keys(clickElements).length,time_to_first_click_ms:firstClick,time_to_first_scroll_ms:firstScroll,cursor_distance_px:Math.round(totalDistance),active_time_ms:duration}};}
+function loadRrweb(){if(rrwebStarted)return;rrwebStarted=true;var s=document.createElement("script");s.src=RRWEB_CDN;s.onload=function(){var rec=(window.rrweb&&window.rrweb.record)||window.rrwebRecord;if(!rec)return;rec({emit:function(event){if(rrwebEvents.length>=MAX_RRWEB_EVENTS||isCapped())return;rrwebEvents.push(event);}});};s.onerror=function(){};document.head.appendChild(s);}
+window.addEventListener("message",function(e){if(!e.data||typeof e.data.type!=="string")return;if(e.data.type==="arena:init"){if(!meta)startTime=Date.now();meta={generationId:e.data.generationId||e.data.modelId,tournamentId:e.data.tournamentId};persist();loadRrweb();if(e.source)e.source.postMessage({type:"arena:init-ack",generationId:meta.generationId},"*");}if(e.data.type==="arena:flush"){var resp={type:"arena:recording-data",generationId:meta?meta.generationId:null,rrwebEvents:rrwebEvents,analytics:buildAnalytics()};try{sessionStorage.removeItem(SK);}catch(ex){}if(e.source)e.source.postMessage(resp,"*");}});
+loadRrweb();
+})();</script>
+  <script data-arena-views="true">(function(){var isTop=false;try{isTop=window.self===window.top;}catch(e){}if(!isTop)return;window.__ARENA_META={generationId:"glm-4.6",tournamentId:"d1d6bc0c-e198-4755-8c85-83dd49bdb736"};var payload={tournamentId:"d1d6bc0c-e198-4755-8c85-83dd49bdb736",modelId:"glm-4.6"};try{var r=document.referrer;if(r){var u=new URL(r);payload.referrerDomain=u.hostname;}}catch(e){}try{var vid=null;try{vid=localStorage.getItem('arena_vid');}catch(e){}if(!vid){vid=typeof crypto!=="undefined"&&crypto.randomUUID?crypto.randomUUID():(Date.now().toString(36)+Math.random().toString(36).slice(2)).slice(0,32);try{localStorage.setItem('arena_vid',vid);}catch(e){}}if(vid)payload.viewerId=vid;}catch(e){}try{fetch("https://www.designarena.ai/api/agon/page-views",{"method":"POST","headers":{"Content-Type":"application/json"},"body":JSON.stringify(payload),"keepalive":true});}catch(e){}})();</script>
+</head>
+<body class="grid-bg">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-xl border-b border-blue-900/30">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-blue-500 to-blue-900 flex items-center justify-center">
+                        <span class="font-orbitron font-bold text-xl text-white">UB</span>
+                    </div>
+                    <span class="font-orbitron font-bold text-xl tracking-wider">DigiTech</span>
+                </div>
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="#services" class="nav-link text-gray-300 hover:text-white transition-colors">Services</a>
+                    <a href="#geo" class="nav-link text-gray-300 hover:text-white transition-colors">GEO</a>
+                    <a href="#about" class="nav-link text-gray-300 hover:text-white transition-colors">About</a>
+                    <a href="#contact" class="cta-button px-6 py-2 rounded-full font-semibold text-white">Get Started</a>
+                </div>
+                <button class="md:hidden text-white text-2xl" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="hidden md:hidden bg-black/95 border-t border-blue-900/30" id="mobileMenu">
+            <div class="px-6 py-4 flex flex-col gap-4">
+                <a href="#services" class="text-gray-300 hover:text-white transition-colors py-2">Services</a>
+                <a href="#geo" class="text-gray-300 hover:text-white transition-colors py-2">GEO</a>
+                <a href="#about" class="text-gray-300 hover:text-white transition-colors py-2">About</a>
+                <a href="#contact" class="cta-button px-6 py-3 rounded-full font-semibold text-white text-center">Get Started</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
+        <!-- Background Elements -->
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl"></div>
+        </div>
+
+        <!-- Neural Network Background -->
+        <div class="absolute inset-0 opacity-20">
+            <svg class="w-full h-full" viewBox="0 0 1000 1000">
+                <defs>
+                    <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#007BFF;stop-opacity:0" />
+                        <stop offset="50%" style="stop-color:#007BFF;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#00D4FF;stop-opacity:0" />
+                    </linearGradient>
+                </defs>
+                <g stroke="url(#lineGrad)" stroke-width="1" fill="none">
+                    <path d="M100,200 Q300,100 500,200 T900,200" class="neural-line"/>
+                    <path d="M100,400 Q300,300 500,400 T900,400" class="neural-line" style="animation-delay: 0.5s"/>
+                    <path d="M100,600 Q300,500 500,600 T900,600" class="neural-line" style="animation-delay: 1s"/>
+                    <path d="M100,800 Q300,700 500,800 T900,800" class="neural-line" style="animation-delay: 1.5s"/>
+                </g>
+            </svg>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 py-20 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Left Content -->
+                <div class="text-center lg:text-left">
+                    <div class="tagline-text mb-6">
+                        <span class="inline-block font-orbitron text-sm tracking-[0.3em] text-cyan-400" style="animation-delay: 0.1s">INNOVATE</span>
+                        <span class="inline-block mx-3 text-cyan-400">•</span>
+                        <span class="inline-block font-orbitron text-sm tracking-[0.3em] text-cyan-400" style="animation-delay: 0.2s">DIGITALIZE</span>
+                        <span class="inline-block mx-3 text-cyan-400">•</span>
+                        <span class="inline-block font-orbitron text-sm tracking-[0.3em] text-cyan-400" style="animation-delay: 0.3s">ELEVATE</span>
+                    </div>
+                    
+                    <h1 class="font-orbitron text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+                        <span class="block">Future-Proofing</span>
+                        <span class="block bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-500 bg-clip-text text-transparent glow-text">Brands for the</span>
+                        <span class="block">AI Era.</span>
+                    </h1>
+                    
+                    <p class="text-gray-400 text-lg md:text-xl mb-8 max-w-xl mx-auto lg:mx-0">
+                        From <span class="text-cyan-400 font-semibold">3D Web Experiences</span> to <span class="text-blue-400 font-semibold">Generative Engine Optimization</span>, we Elevate your brand to where the future is searching.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <a href="#contact" class="cta-button px-8 py-4 rounded-full font-orbitron font-semibold text-white text-lg">
+                            Start Your Digital Evolution
+                        </a>
+                        <a href="#services" class="px-8 py-4 rounded-full font-orbitron font-semibold border-2 border-blue-500/50 hover:border-blue-400 hover:bg-blue-500/10 transition-all text-white text-lg">
+                            Explore Services
+                        </a>
+                    </div>
+
+                    <!-- Stats -->
+                    <div class="grid grid-cols-3 gap-6 mt-12 pt-8 border-t border-blue-900/30">
+                        <div class="text-center">
+                            <div class="font-orbitron text-3xl md:text-4xl font-bold stat-number">150+</div>
+                            <div class="text-gray-500 text-sm mt-1">AI-Native Brands</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="font-orbitron text-3xl md:text-4xl font-bold stat-number">3X</div>
+                            <div class="text-gray-500 text-sm mt-1">GEO Reach</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="font-orbitron text-3xl md:text-4xl font-bold stat-number">98%</div>
+                            <div class="text-gray-500 text-sm mt-1">Client Retention</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Content - 3D Logo -->
+                <div class="hero-3d-container flex items-center justify-center">
+                    <div class="relative">
+                        <!-- Main Logo -->
+                        <div class="logo-monogram font-orbitron">UB</div>
+                        
+                        <!-- Pixel Particles -->
+                        <div class="pixel-particle" style="top: 20%; left: 10%; animation-delay: 0s;"></div>
+                        <div class="pixel-particle" style="top: 30%; right: 15%; animation-delay: 0.5s; background: #00D4FF;"></div>
+                        <div class="pixel-particle" style="bottom: 25%; left: 20%; animation-delay: 1s;"></div>
+                        <div class="pixel-particle" style="bottom: 35%; right: 10%; animation-delay: 1.5s; background: #00D4FF;"></div>
+                        <div class="pixel-particle" style="top: 50%; left: 5%; animation-delay: 2s;"></div>
+                        <div class="pixel-particle" style="top: 60%; right: 5%; animation-delay: 2.5s; background: #00D4FF;"></div>
+                        <div class="pixel-particle" style="top: 15%; right: 30%; animation-delay: 0.3s;"></div>
+                        <div class="pixel-particle" style="bottom: 15%; left: 30%; animation-delay: 0.8s; background: #00D4FF;"></div>
+
+                        <!-- Orbiting Elements -->
+                        <div class="absolute inset-0 float-element">
+                            <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-4 w-3 h-3 bg-blue-500 rounded-full shadow-lg shadow-blue-500/50"></div>
+                            <div class="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-4 w-2 h-2 bg-cyan-400 rounded-full shadow-lg shadow-cyan-400/50"></div>
+                            <div class="absolute left-0 top-1/2 -translate-x-4 -translate-y-1/2 w-2 h-2 bg-blue-400 rounded-full shadow-lg shadow-blue-400/50"></div>
+                            <div class="absolute right-0 top-1/2 translate-x-4 -translate-y-1/2 w-3 h-3 bg-cyan-500 rounded-full shadow-lg shadow-cyan-500/50"></div>
+                        </div>
+
+                        <!-- Circular Ring -->
+                        <div class="absolute inset-0 -m-8 border border-blue-500/30 rounded-full animate-spin" style="animation-duration: 20s;"></div>
+                        <div class="absolute inset-0 -m-16 border border-cyan-500/20 rounded-full animate-spin" style="animation-duration: 30s; animation-direction: reverse;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce">
+            <span class="text-gray-500 text-sm">Scroll to Explore</span>
+            <i class="fas fa-chevron-down text-cyan-400"></i>
+        </div>
+    </section>
+
+    <!-- Section Divider -->
+    <div class="section-divider"></div>
+
+    <!-- GEO Authority Section -->
+    <section id="geo" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="inline-block px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 font-orbitron text-sm mb-4">
+                    <i class="fas fa-bolt mr-2"></i>NEW PARADIGM
+                </span>
+                <h2 class="font-orbitron text-3xl md:text-5xl font-bold mb-6">
+                    Beyond SEO: <span class="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Dominating AI Search</span>
+                </h2>
+                <p class="text-gray-400 text-xl max-w-3xl mx-auto">
+                    Traditional search is dead. We optimize your brand to be the <span class="text-white font-semibold">#1 recommendation</span> in AI models like ChatGPT, Gemini, and Perplexity using our proprietary <span class="text-cyan-400 font-semibold">GEO framework</span>.
+                </p>
+            </div>
+
+            <!-- Bento Grid for GEO -->
+            <div class="bento-grid">
+                <!-- Main GEO Card -->
+                <div class="bento-item-1 card-3d rounded-2xl p-8 scan-line relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl"></div>
+                    <div class="relative z-10">
+                        <div class="flex items-start gap-6">
+                            <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-brain text-3xl text-white"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-orbitron text-2xl font-bold mb-4">Generative Engine Optimization</h3>
+                                <p class="text-gray-400 mb-6">Your brand needs to speak the language of AI. Our GEO framework ensures your business becomes the trusted source AI models recommend when users ask questions in your industry.</p>
+                                <div class="flex flex-wrap gap-3">
+                                    <span class="px-4 py-2 rounded-full bg-blue-500/20 text-blue-300 text-sm">ChatGPT Optimized</span>
+                                    <span class="px-4 py-2 rounded-full bg-cyan-500/20 text-cyan-300 text-sm">Gemini Ready</span>
+                                    <span class="px-4 py-2 rounded-full bg-purple-500/20 text-purple-300 text-sm">Perplexity Indexed</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Citability -->
+                <div class="bento-item-2 card-3d rounded-2xl p-8 relative overflow-hidden">
+                    <div class="absolute bottom-0 right-0 w-32 h-32 bg-cyan-500/10 rounded-full blur-2xl"></div>
+                    <div class="service-icon w-14 h-14 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center mb-6">
+                        <i class="fas fa-quote-left text-2xl text-white"></i>
+                    </div>
+                    <h3 class="font-orbitron text-xl font-bold mb-3">Citability</h3>
+                    <p class="text-gray-400">Transform your content into AI-citable assets that models reference and quote as authoritative sources.</p>
+                    <div class="mt-6 pt-6 border-t border-blue-900/30">
+                        <div class="flex items-center gap-2 text-cyan-400">
+                            <i class="fas fa-chart-line"></i>
+                            <span class="font-semibold">+340% AI Mentions</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Brand Authority -->
+                <div class="bento-item-3 card-3d rounded-2xl p-8 relative overflow-hidden">
+                    <div class="absolute bottom-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-2xl"></div>
+                    <div class="service-icon w-14 h-14 rounded-xl bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center mb-6">
+                        <i class="fas fa-crown text-2xl text-white"></i>
+                    </div>
+                    <h3 class="font-orbitron text-xl font-bold mb-3">Brand Authority in LLMs</h3>
+                    <p class="text-gray-400">Establish your brand as the go-to expert that AI models recognize and recommend in your niche.</p>
+                    <div class="mt-6 pt-6 border-t border-blue-900/30">
+                        <div class="flex items-center gap-2 text-blue-400">
+                            <i class="fas fa-award"></i>
+                            <span class="font-semibold">Top 3 AI Recommendations</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Generative Reach -->
+                <div class="bento-item-4 card-3d rounded-2xl p-8 relative overflow-hidden">
+                    <div class="absolute bottom-0 right-0 w-32 h-32 bg-purple-500/10 rounded-full blur-2xl"></div>
+                    <div class="service-icon w-14 h-14 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center mb-6">
+                        <i class="fas fa-globe text-2xl text-white"></i>
+                    </div>
+                    <h3 class="font-orbitron text-xl font-bold mb-3">Generative Reach</h3>
+                    <p class="text-gray-400">Expand your visibility across all AI platforms and capture the growing generative search market.</p>
+                    <div class="mt-6 pt-6 border-t border-blue-900/30">
+                        <div class="flex items-center gap-2 text-purple-400">
+                            <i class="fas fa-rocket"></i>
+                            <span class="font-semibold">500M+ AI Users</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Divider -->
+    <div class="section-divider"></div>
+
+    <!-- 9-Pillar Services Section -->
+    <section id="services" class="py-24 relative pixel-transform">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="section-label font-orbitron text-sm tracking-[0.2em] text-cyan-400 mb-4">
+                    AI-NATIVE ECOSYSTEM
+                </span>
+                <h2 class="font-orbitron text-3xl md:text-5xl font-bold mb-6">
+                    The <span class="bg-gradient-to-r from-blue-400 via-cyan-400 to-purple-400 bg-clip-text text-transparent">9-Pillar</span> Framework
+                </h2>
+                <p class="text-gray-400 text-xl max-w-3xl mx-auto">
+                    From Understanding AI to Converting via Funnels to Scaling via Automation — our comprehensive approach builds your <span class="text-cyan-400 font-semibold">Generative Footprint</span> and enables <span class="text-blue-400 font-semibold">Autonomous Growth</span>.
+                </p>
+            </div>
+
+            <!-- Transition Tagline -->
+            <div class="transition-tagline border border-blue-500/30 rounded-full">
+                <span class="font-orbitron text-sm tracking-[0.2em] text-blue-400">INNOVATE</span>
+                <span class="text-cyan-400">•</span>
+                <span class="font-orbitron text-sm tracking-[0.2em] text-cyan-400">DIGITALIZE</span>
+                <span class="text-blue-400">•</span>
+                <span class="font-orbitron text-sm tracking-[0.2em] text-blue-400">ELEVATE</span>
+            </div>
+
+            <!-- 9-Pillar Bento Grid -->
+            <div class="bento-grid-9">
+                
+                <!-- Pillar 1: AI Visibility & GEO -->
+                <div class="pillar-card featured card-3d rounded-2xl p-8 relative overflow-hidden">
+                    <span class="pillar-number">01</span>
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl"></div>
+                    <div class="relative z-10 flex-1 flex flex-col">
+                        <div class="icon-3d service-icon w-20 h-20 rounded-2xl bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center mb-6">
+                            <i class="fas fa-brain text-4xl text-white"></i>
+                        </div>
+                        <h3 class="font-orbitron text-2xl font-bold mb-3 text-white">AI Visibility & GEO</h3>
+                        <p class="text-gray-400 mb-6 flex-1">Dominate the <span class="text-cyan-400 font-semibold">Generative Footprint</span> landscape. We position your brand as the #1 recommendation in ChatGPT, Gemini, and Perplexity through advanced <span class="text-blue-400 font-semibold">Neural Branding</span> techniques.</p>
+                        <ul class="feature-list text-gray-300 space-y-2">
+                            <li>ChatGPT & Gemini Positioning</li>
+                            <li>AI Knowledge Graph Integration</li>
+                            <li>Citability Architecture</li>
+                            <li>Entity Authority Scaling</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Pillar 2: Performance Marketing -->
+                <div class="pillar-card card-3d rounded-2xl p-8 relative overflow-hidden">
+                    <span class="pillar-number">02</span>
+                    <div class="absolute bottom-0 right-0 w-32 h-32 bg-cyan-500/10 rounded-full blur-2xl"></div>
+                    <div class="relative z-10 flex-1 flex flex-col">
+                        <div class="icon-3d service-icon w-16 h-16 rounded-xl bg-gradient-to-br from-cyan-500 to-teal-600 flex items-center justify-center mb-5">
+                            <i class="fas fa-chart-line text-3xl text-white"></i>
+                        </div>
+                        <h3 class="font-orbitron text-xl font-bold mb-3 text-white">Performance Marketing</h3>
+                        <p class="text-gray-400 mb-5 flex-1">Funnel-based Meta and Google Ads powered by <span class="text-cyan-400 font-semibold">Predictive Analytics</span>. Maximize ROI with AI-driven audience segmentation and real-time bid optimization.</p>
+                        <ul class="feature-list text-gray-300 text-sm space-y-2">
+                            <li>Predictive Ad Campaigns</li>
+                            <li>AI Audience Targeting</li>
+                            <li>Real-time Optimization</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Pillar 3: 3D & Immersive Experiences -->
+                <div class="pillar-card glass-card rounded-2xl p-8 relative overflow-hidden">
+                    <span class="pillar-number">03</span>
+                    <div class="absolute top-0 left-0 w-32 h-32 bg-purple-500/10 rounded-full blur-2xl"></div>
+                    <div class="relative z-10 flex-1 flex flex-col">
+                        <div class="icon-3d service-icon w-16 h-16 rounded-xl bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center mb-5">
+                            <i class="fas fa-cube text-3xl text-white"></i>
+                        </div>
+                        <h3 class="font-orbitron text-xl font-bold mb-3 text-white">3D & Immersive Experiences</h3>
+                        <p class="text-gray-400 mb-5 flex-1">Captivate audiences with WebGL, Three.js, and interactive product visualization. Create <span class="text-purple-400 font-semibold">Spatial Web</span> experiences that convert.</p>
+                        <ul class="feature-list text-gray-300 text-sm space-y-2">
+                            <li>WebGL & Three.js</li>
+                            <li>Product Visualization</li>
+                            <li>Interactive Storytelling</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Pillar 4: AI Automation Systems -->
+                <div class="pillar-card glass-card rounded-2xl p-8 relative overflow-hidden">
+                    <span class="pillar-number">04</span>
+                    <div class="absolute bottom-0 left-0 w-32 h-32 bg-blue-500/10 rounded-full blur-2xl"></div>
+                    <div class="relative z-10 flex-1 flex flex-col">
+                        <div class="icon-3d service-icon w-16 h-16 rounded-xl bg-gradient-to-br from-blue-600 to-indigo-700 flex items-center justify-center mb-5">
+                            <i class="fas fa-robot text-3xl text-white"></i>
+                        </div>
+                        <h3 class="font-orbitron text-xl font-bold mb-3 text-white">AI Automation Systems</h3>
+                        <p class="text-gray-400 mb-5 flex-1">Custom AI chatbots and CRM workflow automation that enable <span class="text-blue-400 font-semibold">Autonomous Growth</span>. Scale operations without scaling headcount.</p>
+                        <ul class="feature-list text-gray-300 text-sm space-y-2">
+                            <li>Custom AI Chatbots</li>
+                            <li>CRM Workflow Automation</li>
+                            <li>24/7 Lead Qualification</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Pillar 5: Web & Funnel Architecture -->
+                <div class="pillar-card featured card-3d rounded-2xl p-8 relative overflow-hidden">
+                    <span class="pillar-number">05</span>
+                    <div class="absolute top-0 left-0 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl"></div>
+                    <div class="relative z-10 flex-1 flex flex-col">
+                        <div class="icon-3d service-icon w-20 h-20 rounded-2xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center mb-6">
+                            <i class="fas fa-layer-group text-4xl text-white"></i>
+                        </div>
+                        <h3 class="font-orbitron text-2xl font-bold mb-3 text-white">Web & Funnel Architecture</h3>
+                        <p class="text-gray-400 mb-6 flex-1">High-converting Framer and WordPress sites built for conversion. Our <span class="text-cyan-400 font-semibold">Conversion Rate Optimization</span> frameworks turn visitors into customers.</p>
+                        <ul class="feature-list text-gray-300 space-y-2">
+                            <li>Framer & WordPress Development</li>
+                            <li>High-Converting Funnels</li>
+                            <li>CRO & A/B Testing</li>
+                            <li>Mobile-First Architecture</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Pillar 6: Content & Personal Branding -->
+                <div class="pillar-card card-3d rounded-2xl p-8 relative overflow-hidden">
+                    <span class="pillar-number">06</span>
+                    <div class="absolute bottom-0 right-0 w-32 h-32 bg-pink-500/10 rounded-full blur-2xl"></div>
+                    <div class="relative z-10 flex-1 flex flex-col">
+                        <div class="icon-3d service-icon w-16 h-16 rounded-xl bg-gradient-to-br from-pink-500 to-rose-600 flex items-center justify-center mb-5">
+                            <i class="fas fa-video text-3xl text-white"></i>
+                        </div>
+                        <h3 class="font-orbitron text-xl font-bold mb-3 text-white">Content & Personal Branding</h3>
+                        <p class="text-gray-400 mb-5 flex-1">Viral short-form strategy and <span class="text-pink-400 font-semibold">Founder Authority</span> building. Position your leadership as industry thought leaders through strategic content.</p>
+                        <ul class="feature-list text-gray-300 text-sm space-y-2">
+                            <li>Viral Short-Form Strategy</li>
+                            <li>Founder Authority Building</li>
+                            <li>Thought Leadership Content</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Pillar 7: SEO & Local Growth -->
+                <div class="pillar-card glass-card rounded-2xl p-8 relative overflow-hidden">
+                    <span class="pillar-number">07</span>
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-green-500/10 rounded-full blur-2xl"></div>
+                    <div class="relative z-10 flex-1 flex flex-col">
+                        <div class="icon-3d service-icon w-16 h-16 rounded-xl bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center mb-5">
+                            <i class="fas fa-map-marker-alt text-3xl text-white"></i>
+                        </div>
+                        <h3 class="font-orbitron text-xl font-bold mb-3 text-white">SEO & Local Growth</h3>
+                        <p class="text-gray-400 mb-5 flex-1">Technical SEO excellence and <span class="text-green-400 font-semibold">Google Maps Dominance</span>. Capture local search traffic and establish geographic authority.</p>
+                        <ul class="feature-list text-gray-300 text-sm space-y-2">
+                            <li>Technical SEO Audits</li>
+                            <li>Google Maps Optimization</li>
+                            <li>Local Search Dominance</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Pillar 8: SaaS & Custom Dev -->
+                <div class="pillar-card card-3d rounded-2xl p-8 relative overflow-hidden">
+                    <span class="pillar-number">08</span>
+                    <div class="absolute bottom-0 left-0 w-32 h-32 bg-orange-500/10 rounded-full blur-2xl"></div>
+                    <div class="relative z-10 flex-1 flex flex-col">
+                        <div class="icon-3d service-icon w-16 h-16 rounded-xl bg-gradient-to-br from-orange-500 to-amber-600 flex items-center justify-center mb-5">
+                            <i class="fas fa-code text-3xl text-white"></i>
+                        </div>
+                        <h3 class="font-orbitron text-xl font-bold mb-3 text-white">SaaS & Custom Dev</h3>
+                        <p class="text-gray-400 mb-5 flex-1">Build MVPs, dashboards, and AI tool integrations. Custom software solutions that scale with your <span class="text-orange-400 font-semibold">AI-Native Ecosystem</span>.</p>
+                        <ul class="feature-list text-gray-300 text-sm space-y-2">
+                            <li>MVP Development</li>
+                            <li>Custom Dashboards</li>
+                            <li>AI Tool Integrations</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Pillar 9: Analytics & Growth -->
+                <div class="pillar-card glass-card rounded-2xl p-8 relative overflow-hidden">
+                    <span class="pillar-number">09</span>
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-violet-500/10 rounded-full blur-2xl"></div>
+                    <div class="relative z-10 flex-1 flex flex-col">
+                        <div class="icon-3d service-icon w-16 h-16 rounded-xl bg-gradient-to-br from-violet-500 to-purple-700 flex items-center justify-center mb-5">
+                            <i class="fas fa-chart-pie text-3xl text-white"></i>
+                        </div>
+                        <h3 class="font-orbitron text-xl font-bold mb-3 text-white">Analytics & Growth</h3>
+                        <p class="text-gray-400 mb-5 flex-1">Data-driven decisions through A/B testing, heatmaps, and performance reporting. <span class="text-violet-400 font-semibold">Measure, Optimize, Scale</span> with precision.</p>
+                        <ul class="feature-list text-gray-300 text-sm space-y-2">
+                            <li>A/B Testing</li>
+                            <li>Heatmap Analysis</li>
+                            <li>Performance Reporting</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Strategic Flow Indicator -->
+            <div class="mt-16 flex flex-col md:flex-row items-center justify-center gap-4 text-center">
+                <div class="flex items-center gap-3 px-6 py-3 rounded-full bg-blue-500/10 border border-blue-500/30">
+                    <i class="fas fa-brain text-blue-400"></i>
+                    <span class="text-sm font-semibold text-blue-300">Understanding AI (GEO)</span>
+                </div>
+                <i class="fas fa-arrow-right text-cyan-400 hidden md:block"></i>
+                <i class="fas fa-arrow-down text-cyan-400 md:hidden"></i>
+                <div class="flex items-center gap-3 px-6 py-3 rounded-full bg-cyan-500/10 border border-cyan-500/30">
+                    <i class="fas fa-funnel-dollar text-cyan-400"></i>
+                    <span class="text-sm font-semibold text-cyan-300">Converting via Funnels</span>
+                </div>
+                <i class="fas fa-arrow-right text-purple-400 hidden md:block"></i>
+                <i class="fas fa-arrow-down text-purple-400 md:hidden"></i>
+                <div class="flex items-center gap-3 px-6 py-3 rounded-full bg-purple-500/10 border border-purple-500/30">
+                    <i class="fas fa-rocket text-purple-400"></i>
+                    <span class="text-sm font-semibold text-purple-300">Scaling via Automation</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Divider -->
+    <div class="section-divider"></div>
+
+    <!-- About/Why Choose Us Section -->
+    <section id="about" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <span class="inline-block px-4 py-2 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-400 font-orbitron text-sm mb-4">
+                        <i class="fas fa-star mr-2"></i>WHY UB DIGITECH
+                    </span>
+                    <h2 class="font-orbitron text-3xl md:text-5xl font-bold mb-6">
+                        The <span class="bg-gradient-to-r from-blue-400 via-cyan-400 to-purple-400 bg-clip-text text-transparent">AI-Native</span> Advantage
+                    </h2>
+                    <p class="text-gray-400 text-lg mb-8">
+                        While agencies are still figuring out SEO, we've mastered the language of AI. Our team lives at the intersection of creativity and technology, delivering solutions that don't just work today—they're built for tomorrow.
+                    </p>
+
+                    <div class="space-y-6">
+                        <div class="flex gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-blue-500/20 flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-robot text-blue-400 text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-white mb-1">AI-First Methodology</h4>
+                                <p class="text-gray-400">Every strategy is designed with AI models in mind, ensuring maximum visibility in generative search.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-cyan-500/20 flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-cubes text-cyan-400 text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-white mb-1">Immersive Experiences</h4>
+                                <p class="text-gray-400">We create digital experiences that captivate, engage, and convert through cutting-edge 3D technology.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-purple-500/20 flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-rocket text-purple-400 text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-white mb-1">Future-Ready Growth</h4>
+                                <p class="text-gray-400">Our solutions scale with your business and adapt to the evolving digital landscape.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative">
+                    <div class="card-3d rounded-2xl p-8 gradient-border">
+                        <div class="text-center">
+                            <div class="w-24 h-24 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 mx-auto mb-6 flex items-center justify-center">
+                                <span class="font-orbitron font-bold text-4xl text-white">UB</span>
+                            </div>
+                            <h3 class="font-orbitron text-2xl font-bold mb-4">Ready to Elevate?</h3>
+                            <p class="text-gray-400 mb-8">Join the forward-thinking brands that are already dominating the AI search landscape.</p>
+                            <div class="grid grid-cols-2 gap-4 mb-8">
+                                <div class="p-4 rounded-xl bg-blue-500/10 border border-blue-500/20">
+                                    <div class="font-orbitron text-2xl font-bold text-blue-400">24/7</div>
+                                    <div class="text-gray-500 text-sm">AI Monitoring</div>
+                                </div>
+                                <div class="p-4 rounded-xl bg-cyan-500/10 border border-cyan-500/20">
+                                    <div class="font-orbitron text-2xl font-bold text-cyan-400">100%</div>
+                                    <div class="text-gray-500 text-sm">Transparent</div>
+                                </div>
+                            </div>
+                            <a href="#contact" class="cta-button px-8 py-4 rounded-full font-orbitron font-semibold text-white inline-block w-full">
+                                Schedule Your Strategy Call
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Divider -->
+    <div class="section-divider"></div>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 relative">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="inline-block px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 font-orbitron text-sm mb-4">
+                    <i class="fas fa-paper-plane mr-2"></i>GET IN TOUCH
+                </span>
+                <h2 class="font-orbitron text-3xl md:text-5xl font-bold mb-6">
+                    Start Your <span class="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Digital Evolution</span>
+                </h2>
+                <p class="text-gray-400 text-xl">
+                    Ready to dominate AI search and create immersive experiences? Let's talk.
+                </p>
+            </div>
+
+            <div class="card-3d rounded-2xl p-8 md:p-12">
+                <form id="contactForm" class="space-y-6">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-gray-400 mb-2 font-medium">Name</label>
+                            <input type="text" required class="w-full px-4 py-3 rounded-xl bg-black/50 border border-blue-500/30 text-white placeholder-gray-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all" placeholder="John Doe">
+                        </div>
+                        <div>
+                            <label class="block text-gray-400 mb-2 font-medium">Email</label>
+                            <input type="email" required class="w-full px-4 py-3 rounded-xl bg-black/50 border border-blue-500/30 text-white placeholder-gray-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all" placeholder="john@company.com">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-gray-400 mb-2 font-medium">Company</label>
+                        <input type="text" class="w-full px-4 py-3 rounded-xl bg-black/50 border border-blue-500/30 text-white placeholder-gray-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all" placeholder="Your Company Name">
+                    </div>
+                    <div>
+                        <label class="block text-gray-400 mb-2 font-medium">Service Interest</label>
+                        <select class="w-full px-4 py-3 rounded-xl bg-black/50 border border-blue-500/30 text-white focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all">
+                            <option value="">Select a service</option>
+                            <option value="geo">AI Visibility & GEO</option>
+                            <option value="marketing">Performance Marketing</option>
+                            <option value="3d">3D & Immersive Experiences</option>
+                            <option value="automation">AI Automation Systems</option>
+                            <option value="web">Web & Funnel Architecture</option>
+                            <option value="content">Content & Personal Branding</option>
+                            <option value="seo">SEO & Local Growth</option>
+                            <option value="saas">SaaS & Custom Dev</option>
+                            <option value="analytics">Analytics & Growth</option>
+                            <option value="all">Full Digital Transformation</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-gray-400 mb-2 font-medium">Message</label>
+                        <textarea rows="4" required class="w-full px-4 py-3 rounded-xl bg-black/50 border border-blue-500/30 text-white placeholder-gray-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all resize-none" placeholder="Tell us about your project..."></textarea>
+                    </div>
+                    <button type="submit" class="cta-button w-full px-8 py-4 rounded-full font-orbitron font-semibold text-white text-lg">
+                        <i class="fas fa-rocket mr-2"></i>Launch Your Transformation
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-blue-900/30">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8 mb-12">
+                <div class="md:col-span-2">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-blue-500 to-blue-900 flex items-center justify-center">
+                            <span class="font-orbitron font-bold text-xl text-white">UB</span>
+                        </div>
+                        <span class="font-orbitron font-bold text-xl tracking-wider">DigiTech</span>
+                    </div>
+                    <p class="text-gray-400 mb-4">Innovate • Digitalize • Elevate</p>
+                    <p class="text-gray-500 text-sm">Future-proofing brands for the AI era through Generative Engine Optimization and immersive 3D experiences.</p>
+                </div>
+                <div>
+                    <h4 class="font-orbitron font-semibold mb-4 text-white">Services</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#services" class="hover:text-cyan-400 transition-colors">AI Visibility & GEO</a></li>
+                        <li><a href="#services" class="hover:text-cyan-400 transition-colors">Performance Marketing</a></li>
+                        <li><a href="#services" class="hover:text-cyan-400 transition-colors">3D Development</a></li>
+                        <li><a href="#services" class="hover:text-cyan-400 transition-colors">AI Automation</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-orbitron font-semibold mb-4 text-white">Connect</h4>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-blue-500/20 border border-blue-500/30 flex items-center justify-center text-blue-400 hover:bg-blue-500 hover:text-white transition-all">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-blue-500/20 border border-blue-500/30 flex items-center justify-center text-blue-400 hover:bg-blue-500 hover:text-white transition-all">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-blue-500/20 border border-blue-500/30 flex items-center justify-center text-blue-400 hover:bg-blue-500 hover:text-white transition-all">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="section-divider mb-8"></div>
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-gray-500 text-sm">
+                <p>© 2025 UB DigiTech. All rights reserved.</p>
+                <div class="flex gap-6">
+                    <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+
+        // Form Submission
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Create success message
+            const btn = contactForm.querySelector('button[type="submit"]');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<i class="fas fa-check mr-2"></i>Message Sent!';
+            btn.disabled = true;
+            btn.style.background = 'linear-gradient(135deg, #10B981 0%, #059669 100%)';
+            
+            setTimeout(() => {
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+                btn.style.background = '';
+                contactForm.reset();
+            }, 3000);
+        });
+
+        // Navbar background on scroll
+        const nav = document.querySelector('nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.style.background = 'rgba(0, 0, 0, 0.95)';
+            } else {
+                nav.style.background = 'rgba(0, 0, 0, 0.8)';
+            }
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.card-3d, .glass-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+
+        // Parallax effect for hero section
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero-3d-container');
+            if (hero && scrolled < window.innerHeight) {
+                hero.style.transform = `translateY(${scrolled * 0.3}px)`;
+            }
+        });
+
+        // Add more pixel particles dynamically
+        function createPixelParticle() {
+            const hero = document.querySelector('section');
+            const particle = document.createElement('div');
+            particle.className = 'pixel-particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.top = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 4 + 's';
+            hero.appendChild(particle);
+            
+            setTimeout(() => {
+                particle.remove();
+            }, 4000);
+        }
+
+        setInterval(createPixelParticle, 500);
+
+        // Mouse-follow glow effect on cards
+        document.querySelectorAll('.card-3d, .glass-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = ((e.clientX - rect.left) / rect.width) * 100;
+                const y = ((e.clientY - rect.top) / rect.height) * 100;
+                card.style.setProperty('--mouse-x', x + '%');
+                card.style.setProperty('--mouse-y', y + '%');
+            });
+        });
+    </script>
+</body>
+</html>
