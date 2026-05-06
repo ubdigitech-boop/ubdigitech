@@ -682,7 +682,9 @@ loadRrweb();
                 <div class="hero-3d-container flex items-center justify-center">
                     <div class="relative">
                         <!-- Main Logo -->
-                        <img src="logo2.png" alt="Logo" class="w-80 mx-auto">
+                        <img src="logo2.png"
+     alt="Logo"
+     class="w-80 mx-auto animate-pulse drop-shadow-[0_0_35px_#00cfff]">
                         
                         <!-- Pixel Particles -->
                         <div class="pixel-particle" style="top: 20%; left: 10%; animation-delay: 0s;"></div>
@@ -1169,7 +1171,7 @@ loadRrweb();
             <div class="grid md:grid-cols-4 gap-8 mb-12">
                 <div class="md:col-span-2">
                     <div class="mb-4">
-    <img src="logo.png" alt="UB DigiTech Logo" class="h-20 w-auto drop-shadow-[0_0_12px_#00cfff]">
+    <img src="logo.png" alt="UB DigiTech Logo" class="h-16 w-auto">
 </div>
                     <p class="text-gray-400 mb-4">Innovate • Digitalize • Elevate</p>
                     <p class="text-gray-500 text-sm">Future-proofing brands for the AI era through Generative Engine Optimization and immersive 3D experiences.</p>
