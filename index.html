@@ -1122,86 +1122,48 @@ loadRrweb();
             </div>
 
             <div class="card-3d rounded-2xl p-8 md:p-12">
-                <form id="contactForm"
-      action="https://api.web3forms.com/submit"
-      method="POST"
-      class="space-y-6">
-
-    <!-- Web3Forms Access Key -->
-    <input type="hidden"
-           name="access_key"
-           value="YOUR_ACCESS_KEY">
-
-    <div class="grid md:grid-cols-2 gap-6">
-
-        <div>
-            <label class="block text-gray-400 mb-2 font-medium">Name</label>
-            <input type="text"
-                   name="name"
-                   required
-                   class="w-full px-4 py-3 rounded-xl bg-black/50 border border-blue-500/30 text-white"
-                   placeholder="John Doe">
+                <form id="contactForm" class="space-y-6">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-gray-400 mb-2 font-medium">Name</label>
+                            <input type="text" required class="w-full px-4 py-3 rounded-xl bg-black/50 border border-blue-500/30 text-white placeholder-gray-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all" placeholder="John Doe">
+                        </div>
+                        <div>
+                            <label class="block text-gray-400 mb-2 font-medium">Email</label>
+                            <input type="email" required class="w-full px-4 py-3 rounded-xl bg-black/50 border border-blue-500/30 text-white placeholder-gray-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all" placeholder="john@company.com">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-gray-400 mb-2 font-medium">Company</label>
+                        <input type="text" class="w-full px-4 py-3 rounded-xl bg-black/50 border border-blue-500/30 text-white placeholder-gray-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all" placeholder="Your Company Name">
+                    </div>
+                    <div>
+                        <label class="block text-gray-400 mb-2 font-medium">Service Interest</label>
+                        <select class="w-full px-4 py-3 rounded-xl bg-black/50 border border-blue-500/30 text-white focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all">
+                            <option value="">Select a service</option>
+                            <option value="geo">AI Visibility & GEO</option>
+                            <option value="marketing">Performance Marketing</option>
+                            <option value="3d">3D & Immersive Experiences</option>
+                            <option value="automation">AI Automation Systems</option>
+                            <option value="web">Web & Funnel Architecture</option>
+                            <option value="content">Content & Personal Branding</option>
+                            <option value="seo">SEO & Local Growth</option>
+                            <option value="saas">SaaS & Custom Dev</option>
+                            <option value="analytics">Analytics & Growth</option>
+                            <option value="all">Full Digital Transformation</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-gray-400 mb-2 font-medium">Message</label>
+                        <textarea rows="4" required class="w-full px-4 py-3 rounded-xl bg-black/50 border border-blue-500/30 text-white placeholder-gray-500 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all resize-none" placeholder="Tell us about your project..."></textarea>
+                    </div>
+                    <button type="submit" class="cta-button w-full px-8 py-4 rounded-full font-orbitron font-semibold text-white text-lg">
+                        <i class="fas fa-rocket mr-2"></i>Launch Your Transformation
+                    </button>
+                </form>
+            </div>
         </div>
-
-        <div>
-            <label class="block text-gray-400 mb-2 font-medium">Email</label>
-            <input type="email"
-                   name="email"
-                   required
-                   class="w-full px-4 py-3 rounded-xl bg-black/50 border border-blue-500/30 text-white"
-                   placeholder="john@company.com">
-        </div>
-
-    </div>
-
-    <div>
-        <label class="block text-gray-400 mb-2 font-medium">Company</label>
-        <input type="text"
-               name="company"
-               class="w-full px-4 py-3 rounded-xl bg-black/50 border border-blue-500/30 text-white"
-               placeholder="Your Company Name">
-    </div>
-
-    <div>
-        <label class="block text-gray-400 mb-2 font-medium">Service Interest</label>
-
-        <select name="service"
-                class="w-full px-4 py-3 rounded-xl bg-black/50 border border-blue-500/30 text-white">
-
-            <option value="">Select a service</option>
-            <option value="geo">AI Visibility & GEO</option>
-            <option value="marketing">Performance Marketing</option>
-            <option value="3d">3D & Immersive Experiences</option>
-            <option value="automation">AI Automation Systems</option>
-            <option value="web">Web & Funnel Architecture</option>
-            <option value="content">Content & Personal Branding</option>
-            <option value="seo">SEO & Local Growth</option>
-            <option value="saas">SaaS & Custom Dev</option>
-            <option value="analytics">Analytics & Growth</option>
-            <option value="all">Full Digital Transformation</option>
-
-        </select>
-    </div>
-
-    <div>
-        <label class="block text-gray-400 mb-2 font-medium">Message</label>
-
-        <textarea rows="4"
-                  name="message"
-                  required
-                  class="w-full px-4 py-3 rounded-xl bg-black/50 border border-blue-500/30 text-white resize-none"
-                  placeholder="Tell us about your project..."></textarea>
-    </div>
-
-    <button type="submit"
-            class="cta-button w-full px-8 py-4 rounded-full font-orbitron font-semibold text-white text-lg">
-
-        <i class="fas fa-rocket mr-2"></i>
-        Launch Your Transformation
-
-    </button>
-
-</form>
+    </section>
 
     <!-- Footer -->
     <footer class="py-12 border-t border-blue-900/30">
